@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JavaScript Complex types</title>
+</head>
+<h1>Available Complex Types in JavaScript</h1>
+<p>We have a bunch of so-called 'complex' types in JavaScript. The most basic ones
+    are <code>function()</code>, <code>object {...}</code> and <code>array[...].</code>.</p>
+
+<hr>
+<div id="divResult"></div>
+<div>
+    <p>See source code for details on the various types of Complex Variables</p>
+</div>
+<script>
+
+    // Examples of complex types of variables.
+
+    // 1. Array
+    const fruitArray = ['apple', 'pear', 'banana'];
+
+    // 2. Object
+    const employee = {
+        firstName: 'Peter',
+        email: 'peter@company.com'
+    }
+
+    // 3. function
+    function addNumber(num1, num2){
+        const result = num1 + num2;
+        return result;
+    }
+
+    // ********************************
+    // But: Alternative syntax!
+    // You'll not find this regurarly, but it is absolutely valid
+    // ********************************
+    const namesArray = new Array();
+    namesArray[0] = 'Peter';
+    namesArray[1] = 'Sandra';
+    namesArray[2] = 'Bobby';
+    namesArray[3] = 'Felicia';
+
+    const personObject = new Object();
+    personObject.firstName = 'Peter';
+    personObject.lastName = 'Kassenaar'
+
+    const subtractNumber = (num1, num2) =>{
+        return num1 - num2;
+    }
+
+    // Show their types in the console
+    console.log('Type of namesArray is: ' + typeof namesArray);
+    console.log('Type of personObject is: ' + typeof personObject);
+    console.log('Type of subtractNumber is: ' + typeof subtractNumber);
+</script>
+<body>
+</body>
+</html>

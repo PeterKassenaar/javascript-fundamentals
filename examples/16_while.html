@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JavaScript while</title>
+</head>
+<h1>Using Javascript while()</h1>
+<p>Using JavaScript <code>while()</code> statement.</p>
+
+<hr>
+<div id="divResult"></div>
+<div>
+    <p>See source code for details on the various types of <code>while()</code> loops.</p>
+</div>
+<script>
+
+    // variables
+    let num = 1;
+    let msg = '';
+
+    // 1. Example with while-lus
+    // COUNTING UP
+    while (num < 10) {
+        msg += ', ' + num;	// do something with 'num'
+        num++;				// remember to update num yourself!
+    }
+    document.getElementById('divResult').innerHTML = ('1. Total with while() loop: ' + msg);
+
+
+    // 2. Example with do-while lus
+    // COUNTING BACK DOWN
+    msg = '';	// reset
+    do {
+        msg += ', ' + num;
+        num--;
+    } while (num > 0);
+    document.getElementById('divResult').innerHTML += ('<hr>2. Total with do-while() loop: ' + msg);
+
+    // 3. Example with (intentionally) endless loop
+    msg = '';
+    while(true){
+      msg += ', ' + num;
+      num++;
+      // because we have an endless loop, we must break out of this loop
+        // when a certain condition is met. Here we decide to break if num > 10.
+      if(num > 10){
+          break;
+      }
+    }
+    document.getElementById('divResult').innerHTML += ('<hr>3. Total with endless do-while() loop: ' + msg);
+
+</script>
+<body>
+</body>
+</html>

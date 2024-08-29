@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>Array.filter()</title>
+</head>
+
+<body>
+<h1>Array.filter()</h1>
+<p>See DevTools console (F12) for output.</p>
+
+<div id="divResult"></div>
+
+<script>
+    // Standaard array
+    const myArray = ['red', 'yellow', 'blue', 'black', 'white', 'beige', 'brown'];
+    console.log('Original array: ', myArray);
+
+    // .filter() - an item is returned only if the condition is
+    // met (here: starting with the letter ‘b’). Otherwise, the element is filtered out.
+    const myFilteredArray = myArray.filter(function (color) {
+        return color.startsWith('b');
+    });
+    console.log('Filtered array: ', myFilteredArray);// ["blue", "beige", "brown"]
+
+
+    // The function can be written shorter as an arrow function:
+    const myFilteredArray2 = myArray.filter(color => color.startsWith('b'));
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>Array.map()</title>
+</head>
+
+<body>
+<h1>Array.map()</h1>
+<p>See DevTools console (F12) for output.</p>
+
+<div id="divResult"></div>
+
+<script>
+    // Default array
+    const myArray = ['red', 'yellow', 'blue', 'black', 'white' ];
+    console.log('Original array: ', myArray);
+
+    // .map() receives each value from the array and performs an operation on it.
+    // (here: convert to uppercase).
+    const myArrayCapitals = myArray.map(function(color) {
+        return color.toUpperCase();
+    });
+    console.log('Mapped array: ', myArrayCapitals);// ["RED", "YELLOW", "BLUE", "BLACK", "WHITE" ]
+
+
+    // The function can be written shorter as an arrow function:
+    const myArrayCapitals2 = myArray.map(color => color.toUpperCase());
+</script>
+</body>
+</html>

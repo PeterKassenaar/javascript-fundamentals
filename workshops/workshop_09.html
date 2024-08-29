@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Workshop #9</title>
+</head>
+<body>
+<h1>JavaScript Object workshop</h1>
+<div id="divResult"></div>
+
+<script>
+    // This is an example on how to work with (complex) objects.
+    // We created a 'transportation' object, with different key-value pairs
+    // The method isFuelTypeSupported() checks if the passed in fuel type is supported
+    // by comparing it with the existing fuelTypes by using an array .includes() method.
+
+
+    // 1. Create an object and assign members to it
+    let transportation = {
+        // Properties
+        types: ["Car", "Bicycle", "Bus", "Train", "Airplane"],
+        fuelTypes: ["Gasoline", "Diesel", "Electric", "Hydrogen"],
+
+        // Method/Function inside the object
+        describe: function() {
+            return `This object contains ${this.types.length} types of transportation and ${this.fuelTypes.length} fuel types.`;
+        },
+
+        // Advanced Function. It takes parameters and does something 'useful' (e.g. comparing it with existing fuel types)
+        isFuelTypeSupported: function(fuel) {
+            // we could have also used if-else here. This is simply a shorter notation.
+            return this.fuelTypes.includes(fuel)
+                ? `${fuel} is supported.`
+                : `${fuel} is not supported.`;
+        }
+    };
+
+    // 2. Show properties in the console
+    console.log("Transportation Types:", transportation.types);
+    console.log("Fuel Types:", transportation.fuelTypes);
+
+    // 3. Call the function
+    console.log("Description:", transportation.describe());
+
+    // 4. Test passing parameters to the function
+    let fuelCheck1 = transportation.isFuelTypeSupported("Electric");
+    let fuelCheck2 = transportation.isFuelTypeSupported("Solar");
+
+    // 5. Show the output using alert() or console.log()
+    console.log(fuelCheck1); // Should output: Electric is supported.
+    console.log(fuelCheck2); // Should output: Solar is not supported.
+    alert(fuelCheck1);
+    alert(fuelCheck2);
+
+
+</script>
+
+</body>
+</html>

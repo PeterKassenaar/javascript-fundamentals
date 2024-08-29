@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Objects</title>
+</head>
+
+<body>
+	<h1>JavaScript Objects</h1>
+	<p>See DevTools console (F12) for output.</p>
+	<div id="divResult"></div>
+
+	<script>
+		// Examples of objects
+		const emptyObject = {}; // fastest and simplest way to declare an object.
+
+		const person = {
+			firstName: 'Peter',
+			lastName: 'Kassenaar',
+			city: 'Zutphen'
+		};
+
+		// Write property of an object to the screen
+		document.getElementById('divResult').innerHTML = 'First name: ' + person.firstName;
+
+		// Write entire object (in object notation, between { ...} to the console
+		console.log({person: person});
+
+		// Objects can have functions (!)
+		person.getFullName = function (){
+			return this.firstName + ' ' + this.lastName;
+		}
+		console.log('full name: '+ person.getFullName()); // Peter Kassenaar
+	</script>
+</body>
+</html>

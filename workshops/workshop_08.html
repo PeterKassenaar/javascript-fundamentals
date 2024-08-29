@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Workshop #8</title>
+</head>
+<body>
+<h1>JavaScript Array workshops</h1>
+<div id="divResult"></div>
+
+<script>
+    // There are options to fulfill this workshop! We opted here to have two sections:
+    // - First section where all the (helper) functions are defined;
+    // - Second section where the program is actually executed.
+
+    //******************
+    // First section, (helper) functions
+    //******************
+    // 1. Initialize an empty array
+    let numbers = [];
+
+    // 2. Function to prompt the user for numbers and add to the array
+    function getNumbers() {
+        let input;
+        while (true) {
+            input = prompt("Enter a number (type 'end' to stop):");
+            if (input.toLowerCase() === 'end') break;
+            let number = parseFloat(input);
+            // check if actually a number is entered.
+            if (!isNaN(number)) {
+                numbers.push(number); // add to the array
+            } else {
+                alert("Please enter a valid number."); // else, show error message
+            }
+        }
+    }
+
+    // 3. Function to display the contents of the array
+    function displayArray(arr, description) {
+        const divResult = document.getElementById('divResult')
+        divResult.innerHTML += `<h3>${description}</h3>`;
+        divResult.innerHTML += `<p>${arr.join(", ")}</p>`;
+        divResult.innerHTML += '<hr>';
+    }
+
+    // 4. Function to create a new array where every item is multiplied by 10
+    function multiplyByTen(myArray) {
+        return myArray.map(function(num) {
+            return num * 10;
+        });
+    }
+
+    //******************
+    // Second section, actual execution, calling the functions
+    //******************
+    // 5. Execute the actual program
+    getNumbers();
+
+    // 6. Show the contents of the array
+    displayArray(numbers, "Original Array");
+
+    // 7. Show the contents of the array reversed
+    let reversedArray = [...numbers].reverse();
+    displayArray(reversedArray, "Reversed Array");
+
+    // 8. Show the contents of the array sorted
+    let sortedArray = [...numbers].sort((a, b) => a - b);
+    displayArray(sortedArray, "Sorted Array");
+
+    // 9. Show the contents of the array multiplied by 10
+    let multipliedArray = multiplyByTen(numbers);
+    displayArray(multipliedArray, "Array Multiplied by 10");
+
+
+</script>
+
+</body>
+</html>

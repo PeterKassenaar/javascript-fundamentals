@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Workshop #6</title>
+</head>
+<body>
+<h1>A JavaScript Calculator using functions</h1>
+<div id="divResult"></div>
+
+<script>
+    // Function to add two numbers
+    function add(a, b) {
+        return a + b;
+    }
+
+    // Function to subtract the second number from the first
+    function subtract(a, b) {
+        return a - b;
+    }
+
+    // Function to multiply two numbers
+    function multiply(a, b) {
+        return a * b;
+    }
+
+    // Function to divide the first number by the second
+    // Optional: Check if the second number is not zero
+    function divide(a, b) {
+        if (b === 0) {
+            return "Error: Division by zero is not allowed.";
+        }
+        return a / b;
+    }
+
+    // Example usage
+    console.log("Addition: " + add(10, 5));        // Output: 15
+    console.log("Subtraction: " + subtract(10, 5)); // Output: 5
+    console.log("Multiplication: " + multiply(10, 5)); // Output: 50
+    console.log("Division: " + divide(10, 5));     // Output: 2
+    console.log("Division by zero: " + divide(10, 0)); // Output: Error: Division by zero is not allowed.
+
+    // Possible expansions:
+    // - Let the user enter two numbers, perform all operations on these numbers
+    // - Write the output to the page instead of to the console
+    // - Use arrow functions instead of the keyword 'function'
+
+</script>
+
+</body>
+</html>

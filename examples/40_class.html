@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript class { ... }</title>
+</head>
+
+<body>
+<h1>JavaScript keyword <code>class { ... }</code></h1>
+<p>See DevTools console (F12) for output.</p>
+
+<div id="divResult"></div>
+
+<script>
+    // 1. Define the class
+    class Kid {
+        // 1a. This class has three properties.
+        constructor(name, year, gender) {
+            this.name = name;
+            this.year = year;
+            this.gender = gender;
+        }
+
+        // 1b. This class has one method
+        getAge(){
+            const now = new Date();
+            return now.getFullYear() - this.year;
+        }
+    }
+
+    // 2. Instantiating objects (in this case: children), based on the class
+    const tommy = new Kid('Tommy', 2012, 'boy');
+    const alicia = new Kid('Alicia', 2014, 'girl');
+
+    console.log('Tommy is ' + tommy.getAge() + ' years old.');
+    console.log('Alicia is ' + alicia.getAge() + ' years old.');
+
+</script>
+</body>
+</html>

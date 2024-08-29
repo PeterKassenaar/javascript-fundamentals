@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JavaScript Arrays</title>
+</head>
+<body>
+<h1>JavaScript Arrays</h1>
+<p>See DevTools console (F12) for output.</p>
+<hr>
+<div id="divResult"></div>
+<div>
+    <p>Also see source code for details on the various array options.</p>
+</div>
+<script>
+    // 1. Some array examples
+    const empty  = []; // a new, empty array
+    const dozens = [10, 20, 30, 40, 50]; // Array with five numeric values.
+    const mixedArray = ['Hello', 'World', 10, 20, true]; // Array with multiple, different typed values. Perfectly valid in JS.
+    const emtyArray = new Array(); // New, empty array. This syntax is hardly used.
+    const counting = [1, , 3]; // Array with two elements and one undefined element in the middle. Don't use this if it can be avoided! Confusing.
+
+    // 2. Waarden uitlezen en toevoegen
+    const a = dozens[2]; // a has value 30.
+    dozens[5] = 60; // The value 60 is added as a new element at the end of the array.
+
+    dozens[0] = 70; // The first element has value 70.
+
+    // Arrays have one property: Its length (e.g. the number of items in the array).
+    const x = [].length; // x === 0, b/c an empty array doesn't have elements, nor a length.
+    const y = [1, 2, 3].length; // y === 3 (array has three elements). The highest index == 2 (!)
+
+    // Using the property .length as assignment (preferred: don't do this).
+    const z = ['a', 'b', 'c', 'd']; // z has four elements.
+    z.length = 2; // z is now ['a', 'b']
+    z.length = 0; // z is now [] (zero elementen, empty array)
+    z.length = 4; // Its length equals 4,but the array has no elements. This is the same as new Array(4).
+
+    // Output in console
+    console.log('The array dozens[] :: ' , dozens);
+    console.log('The value of a :: ', a);
+    console.log('The fourth element in the array dozens[] :: ', dozens[3]);
+</script>
+</body>
+</html>

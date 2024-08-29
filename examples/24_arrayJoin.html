@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+	<meta charset="utf-8">
+	<title>Array.join()</title>
+</head>
+
+<body>
+	<h1>Array.join()</h1>
+	<p>See DevTools console (F12) for output.</p>
+	<div id="divResult"></div>
+
+	<script>
+		// Array.join - combine the elements in the array
+		const myArray = [10, 20, 30, 40, 50]; // Array with five elements
+		console.log(myArray.join()); // '10,20,30,40,50' .
+		console.log(myArray.join('*')); // '10*20*30*40*50' .
+
+		// the inversion: string.split(), splits a string to an array
+		const myText = 'Aap,Noot,Mies,Teun,Zus,Jet';
+		console.log(myText.split(','));
+
+		const numToArray= '0623337156';
+		console.log(numToArray.split('')); // Each character is put into the array separately. Splitting is done on an Empty String.
+	</script>
+</body>
+</html>

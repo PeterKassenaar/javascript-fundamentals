@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Workshop #31, a character counter</title>
+    <style>
+        /* Simple styling for feedback */
+        #feedback {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .exceeded {
+            color: red;
+        }
+        .remaining {
+            color: green;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Character Counter Example</h1>
+<p>Type in the textarea below. The maximum allowed characters are 100.</p>
+
+<!-- Textarea element for user input -->
+<textarea id="textInput" rows="8" cols="30" placeholder="Type your text here..."></textarea>
+
+<!-- Feedback area for showing remaining characters -->
+<div id="feedback"></div>
+
+<script>
+    // 1. Maximum number of characters allowed
+    const maxChars = 100;
+
+    // 2. Get the textarea and feedback elements
+    const textInput = document.getElementById('textInput');
+    const feedback = document.getElementById('feedback');
+
+    // 3. Function to update the feedback based on the current length of the input
+    const updateFeedback = () => {
+        const currentLength = textInput.value.length; // calculate current length of input
+        const remainingChars = maxChars - currentLength; // calculate how many characters are still allowed
+
+        if (remainingChars >= 0) {
+            feedback.textContent = `You can type ${remainingChars} more characters.`;
+            feedback.className = "remaining";
+        } else {
+            feedback.textContent = `You have exceeded the limit by ${-remainingChars} characters!`;
+            feedback.className = "exceeded";
+        }
+    }
+
+    // 4. Attach the event listener to the textarea to check after each character typed
+    textInput.addEventListener('input', updateFeedback);
+
+    // 5. Initialize feedback when the page loads
+    updateFeedback();
+</script>
+
+</body>
+</html>

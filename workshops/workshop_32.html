@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Workshop #32 - Number Validation</title>
+    <style>
+        /* Simple styling for feedback */
+        #feedback {
+            margin-top: 10px;
+            font-size: 14px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Number Validation Example</h1>
+<p>Enter a number smaller than 10:</p>
+
+<!-- Input field for user input -->
+<input type="number" id="numberInput" placeholder="Enter a number">
+
+<!-- Feedback area for showing validation message -->
+<div id="feedback"></div>
+
+<script>
+    // 1. Get the input and feedback elements
+    const numberInput = document.getElementById('numberInput');
+    const feedback = document.getElementById('feedback');
+
+    // 2. Function to validate the number when the input loses focus
+    function validateNumber() {
+        const value = parseFloat(numberInput.value);
+
+        if (!isNaN(value) && value < 10) {
+            feedback.textContent = ""; // Clear the feedback if the value is valid
+        } else {
+            feedback.textContent = "Please enter a number smaller than 10.";
+        }
+    }
+
+    // 3. Attach the event listener to the input field, using the blur event
+    numberInput.addEventListener('blur', validateNumber);
+</script>
+</body>
+</html>

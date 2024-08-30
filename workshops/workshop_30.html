@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Workshop #30</title>
+
+</head>
+<body>
+<h1>Change link backgrounds on mouse click</h1>
+<p>This is for learning to work with JavaScript events</p>
+<hr>
+<div>
+    <p>
+        Lorem ipsum <a href="#">dolor sit amet</a>, consectetur adipiscing elit. Aenean in eros urna. Ut posuere
+        ultrices sagittis. In pellentesque, libero sed convallis facilisis, lacus quam malesuada tellus, at condimentum
+        felis sem quis ligula. Sed eu felis nec massa porttitor fermentum. Cum sociis natoque<a href="#"> penatibus et
+        magnis dis parturient</a> montes, nascetur ridiculus mus. Suspendisse commodo, nulla et aliquet ullamcorper,
+        massa nibh viverra enim, sit amet tincidunt velit purus eu ipsum. Cras ut tellus non elit interdum rhoncus. Sed
+        tellus nunc, rhoncus vel semper vitae, vehicula sit amet nunc. Pellentesque id erat et justo convallis <a
+            href="#">dignissim vitae at justo</a>. Phasellus rutrum sem ac nibh condimentum ac vestibulum justo
+        vehicula. Sed lobortis neque accumsan libero sollicitudin quis pulvinar tortor aliquet.
+    </p>
+</div>
+<div>
+    <p><button id="btnChangeLinks">Change link backgrounds</button></p>
+</div>
+<script>
+    // An array of colors
+    const colors = [
+        "#FFDDC1",
+        "#FFE4C4",
+        "#FFB6C1",
+        "#ADD8E6",
+        "#90EE90",
+        "#BE9742",
+        "#0099FF"
+    ];
+
+    // Variable to keep track of the current color index
+    let currentColorIndex = 0;
+
+    // JavaScript function to change background color of all links
+    function changeLinkBackgrounds() {
+        // Select all links on the page
+        const links = document.getElementsByTagName('a'); // or document.querySelectorAll('a');
+
+        // Loop over the NodeList and change the background color of each link
+        for (let i = 0; i < links.length; i++) {
+            // Set the background color using the current color
+            links[i].style.backgroundColor = colors[currentColorIndex];
+        }
+
+        // Update the color index to the next color, and wrap around if at the end of the array.
+        // We're using the 'modulo' operator % here, for short. This can also be achieved with
+        // a counter and multiple if-statements.
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+    }
+    document.getElementById('btnChangeLinks')
+        .addEventListener('click', changeLinkBackgrounds);
+</script>
+
+</body>
+</html>

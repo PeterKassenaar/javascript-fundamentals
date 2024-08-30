@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript XMLHttpRequest Example</title>
+</head>
+<body>
+<h1>Fetching Random User Data</h1>
+<p>
+    We're using the api <code>https://randomuser.me/api/</code> for this example.
+</p>
+<p>Also we are using 'old school' JavaScript <code>XMLHttpRequest</code> object here.
+    This way, you build an XHR-request manually. ATM this is rarely done.
+    You can still find this in older examples, however</p>
+<button id="fetchButton">Fetch Random User Data</button>
+<div id="userData"></div>
+
+<script>
+    // 1. Function to fetch data using XMLHttpRequest
+    function fetchRandomUser() {
+        // 2. Create a new XMLHttpRequest object
+        const xhr = new XMLHttpRequest();
+
+        // 3. Configure it: GET-request for the URL / random user API
+        xhr.open('GET', 'https://randomuser.me/api/', true);
+
+        // 4. Set up the callback function that will be called when the request is complete.
+        // This event is fired after the API returns some data.
+        xhr.addEventListener('readystatechange', function() {
+            // 5. Check if the request is complete (readyState 4) and successful (status 200)
+            // This code is Asynchronous! It means it only runs once the API returns.
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // 6. Parse the JSON response
+                const response = JSON.parse(xhr.responseText);
+                const user = response.results[0];
+
+                // 7. Display the user data
+                const userDataDiv = document.getElementById('userData');
+                userDataDiv.innerHTML = `
+                        <h2>${user.name.first} ${user.name.last}</h2>
+                        <p><strong>Email:</strong> ${user.email}</p>
+                        <p><strong>Location:</strong> ${user.location.city}, ${user.location.country}</p>
+                        <img src="${user.picture.medium}" alt="User Picture">
+                    `;
+            }
+        });
+
+        // 8. Fire/Send the request.
+        // This means this line is executed BEFORE the readystatechange event handler!
+        xhr.send();
+    }
+
+    // Attach the event listener to the button
+    const fetchButton = document.getElementById('fetchButton');
+    fetchButton.addEventListener('click', fetchRandomUser);
+</script>
+</body>
+</html>

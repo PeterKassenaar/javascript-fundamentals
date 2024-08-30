@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript fetch() Example</title>
+</head>
+<body>
+<h1>Fetching Random User Data using <code>fetch()</code></h1>
+<p>
+    We're again using the api <code>https://randomuser.me/api/</code> for this example.
+</p>
+<p>
+    This script is using the more modern <code>fetch()</code> approach, which is supported
+    by all modern browsers. See for instance <a href="https://caniuse.com/?search=fetch">https://caniuse.com/?search=fetch</a>.
+</p>
+<button id="fetchButton">Fetch Random User Data</button>
+<div id="userData"></div>
+
+<script>
+    // 1. Function to fetch data using the Fetch API
+    function fetchRandomUser() {
+        // 2. Using fetch() saves us from the burden of setting up XMLHttpRequest ourselves.
+        // It uses a Promise-like notation, with a callback function inside the .then() event handler.
+        fetch('https://randomuser.me/api/')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error in Network response');
+                }
+                // 3. Parse the JSON from the response. It is passed to the next .then() in the chain.
+                return response.json();
+            })
+            .then(data => {
+                const user = data.results[0]; // only fetch 1 user.
+
+                // 4. Display the user data. This can be outsourced to a separate function, if desired.
+                const userDataDiv = document.getElementById('userData');
+                userDataDiv.innerHTML = `
+                        <h2>${user.name.first} ${user.name.last}</h2>
+                        <p><strong>Email:</strong> ${user.email}</p>
+                        <p><strong>Location:</strong> ${user.location.city}, ${user.location.country}</p>
+                        <img src="${user.picture.medium}" alt="User Picture">
+                    `;
+            })
+            .catch(error => {
+                // 5. Handle any errors in the .catch() block.
+                console.error('Fetch error:', error);
+            });
+    }
+
+    // 6. Attach the event listener to the button.
+    const fetchButton = document.getElementById('fetchButton');
+    fetchButton.addEventListener('click', fetchRandomUser);
+</script>
+</body>
+</html>

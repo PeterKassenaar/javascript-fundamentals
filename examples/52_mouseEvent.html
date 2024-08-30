@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript mouse event</title>
+    <script>
+        // example: catching mouse clicks and mouse moves.
+        window.onload=function(){
+            document.addEventListener('click', handleClick);
+            document.addEventListener('mousemove', handleMove);
+        };
+
+        // Event handlers
+        function handleClick(evt){
+            const xCoord = evt.clientX;
+            const yCoord = evt.clientY;
+            const msg = 'Clicked! X : ' + xCoord + ', Y : ' + yCoord;
+            document.getElementById('coords').innerHTML = msg;
+        }
+
+        function handleMove(evt){
+            const xCoord = evt.clientX;
+            const yCoord = evt.clientY;
+            const msg = 'Moved! X : ' + xCoord + ', Y : ' + yCoord;
+            document.getElementById('mouseMove').innerHTML = msg;
+        }
+    </script>
+</head>
+
+<body>
+<div id="container">
+    <h1>Click anywhere on the page</h1>
+    <p id="coords"></p>
+    <p id="mouseMove"></p>
+</div>
+</body>
+</html>

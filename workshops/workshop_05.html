@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Workshop #5</title>
+</head>
+<body>
+<h1>A simple JavaScript Guessing game</h1>
+<div id="divResult"></div>
+
+<script>
+    let randomNumber = Math.floor(Math.random() * 10) + 1;
+    let attempts = 3;
+    let guess;
+    const divResult = document.getElementById('divResult');
+
+    // We are using a while() loop here. Q: can you rewrite this using a for() loop?
+    while (attempts > 0) {
+        guess = parseInt(prompt("Guess a number between 1 and 10 (inclusive):"));
+
+        if (guess === randomNumber) {
+            divResult.innerHTML = "Correct! You win! The number was: " + randomNumber;
+            break;
+        } else {
+            attempts -= 1;
+            console.log("Incorrect! Try again. You have " + attempts + " attempts left.");
+        }
+    }
+
+
+    if (attempts === 0) {
+        divResult.innerHTML = 'You lose! The correct number was: ' + randomNumber;
+
+        // Or, shorter:
+        // divResult.innerHTML = `You lose! The correct number was ${randomNumber}`
+    }
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Workshop #4</title>
+</head>
+<body>
+<h1>A simple JavaScript Calculator</h1>
+<div id="divResult"></div>
+
+<script>
+    let num1 = parseFloat(prompt("Enter the first number:"));
+    let num2 = parseFloat(prompt("Enter the second number:"));
+    let operation = prompt("Enter the operation (+, -, *, /):");
+    let result;
+
+    if (operation === "+") {
+        result = num1 + num2;
+    } else if (operation === "-") {
+        result = num1 - num2;
+    } else if (operation === "*") {
+        result = num1 * num2;
+    } else if (operation === "/") {
+        result = num1 / num2;
+    } else {
+        console.log("This operation can not be performed! Please choose +, -, *, /");
+    }
+
+    const divResult = document.getElementById('divResult');
+    divResult.innerHTML = num1 + ' ' +  operation + ' ' + num2 + ' = ' + result;
+
+    // Or, shorter:
+    // divResult.innerHTML = `${num1} ${operation} ${num2} = ${result}`
+
+</script>
+
+</body>
+</html>

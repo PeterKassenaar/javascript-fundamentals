@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Workshop #10</title>
+</head>
+<body>
+<h1>JavaScript Classes workshop</h1>
+<p>See source code and DevTools Console for output.</p>
+<div id="divResult"></div>
+
+<script>
+
+    console.log('Creating and using JavaScript classes.');
+
+    //*****************************
+    // Workshop #10
+    //*****************************
+
+    // 1. Define a Pet class
+    class Pet {
+        // 2. Use a constructor to initialize properties
+        constructor(name, type, age, sound) {
+            this.name = name;   // Name of the pet
+            this.type = type;   // Type of the pet (e.g., Dog, Cat)
+            this.age = age;     // Age of the pet
+            this.sound = sound; // Sound the pet makes
+        }
+
+        // 3. Create a class method
+        makeSound() {
+            return `${this.name} the ${this.type} says: ${this.sound}!`;
+        }
+    }
+
+    // 4. Instantiate the class with different pets
+    // Parameters are used in the constructor to literally 'construct' a pet object, based on the Pet class.
+    let myDog = new Pet("Buddy", "Dog", 3, "Woof");
+    let myCat = new Pet("Whiskers", "Cat", 2, "Meow");
+
+    // 5. Call the method and show the result
+    console.log(myDog.makeSound());  // Output: Buddy the Dog says: Woof!
+    console.log(myCat.makeSound());  // Output: Whiskers the Cat says: Meow!
+
+    // 6. Additional: Show properties of each pet
+    console.log("Dog's Name:", myDog.name);
+    console.log("Cat's Type:", myCat.type);
+
+</script>
+
+</body>
+</html>

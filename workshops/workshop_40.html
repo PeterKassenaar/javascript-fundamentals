@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop #40 - Fetch Random Users</title>
+    <style>
+        .user {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+<h1>JavaScript- fetching Random User Data</h1>
+<button id="fetchButton">Fetch Random Users</button>
+<div id="userData"></div>
+
+<script>
+    const apiUrl = 'https://randomuser.me/api/?results=5'
+
+    // 1. Function to fetch random users from the randomuser.me API
+    // We opted for the async/await approach here, but there are options!
+    async function fetchRandomUsers() {
+        try {
+            const response = await fetch(apiUrl);
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            const users = data.results;
+
+            // 2. Clear any existing data
+            const userDataDiv = document.getElementById('userData');
+            userDataDiv.innerHTML = "";
+
+            // 3. Loop over each user and display their details.
+            // This can also be outsourced to a function.
+            users.forEach((user, index) => {
+                const userDiv = document.createElement('div');
+                userDiv.classList.add('user');
+                userDiv.innerHTML = `
+                        <h2>${index +1 } - ${user.name.first} ${user.name.last}</h2>
+                        <p><strong>Email:</strong> ${user.email}</p>
+                        <p><strong>Location:</strong> ${user.location.city}, ${user.location.country}</p>
+                        <img src="${user.picture.medium}" alt="User Picture">
+                    `;
+                userDataDiv.appendChild(userDiv);
+            });
+        } catch (error) {
+            console.error('Fetch error:', error);
+        }
+    }
+
+    // 4. Attach the event listener to the button
+    const fetchButton = document.getElementById('fetchButton');
+    fetchButton.addEventListener('click', fetchRandomUsers);
+</script>
+</body>
+</html>

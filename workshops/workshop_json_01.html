@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Workshop JSON</title>
+</head>
+<body>
+<h1>JavaScript workshop on understanding JSON</h1>
+<p>See source code and DevTools Console for output.</p>
+<div>
+    <p>Results written back to screen:</p>
+</div>
+<div id="divResult"></div>
+
+<script>
+
+    console.log('Working on JSON.');
+
+    //*****************************
+    // Workshop JSON
+    //*****************************
+    // 1. Create a JavaScript object
+    let student = {
+        name: "Alice",
+        age: 21,
+        major: "Computer Science",
+        enrolled: true,
+        courses: ["Algorithms", "Data Structures", "Web Development"]
+    };
+
+    // 2. Convert the object to a JSON string
+    let jsonString = JSON.stringify(student);
+
+    // 3. Display the JSON string in the console
+    console.log("JSON String:", jsonString);
+
+    // 4. Convert the JSON string back to an object
+    const parsedObject = JSON.parse(jsonString);
+
+    // 5. Verify the conversion by accessing properties of the object
+    console.log("Parsed Object:", parsedObject);
+    console.log("Student's Name:", parsedObject.name);
+    console.log("Student's Major:", parsedObject.major);
+
+    // Optionally, display the JSON string and the parsed object properties on the webpage
+    const divResult = document.getElementById('divResult');
+    divResult.innerHTML = `<h3>JSON String:</h3><p>${jsonString}</p>`;
+    divResult.innerHTML += `<h3>Parsed Object:</h3><p>Name: ${parsedObject.name}</p><p>Major: ${parsedObject.major}</p>`;
+
+</script>
+
+</body>
+</html>

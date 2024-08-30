@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript window methods</title>
+</head>
+
+<body>
+<h1>JavaScript <code>window.load()</code> and <code>window.beforeunload()</code> methods</h1>
+<p>See also DevTools console (F12) and source code.</p>
+<p>
+    Go to <a href="https://google.com">Google</a> (to demonstrate leaving the page).
+</p>
+
+<div id="divResult"></div>
+
+<script>
+    // 1. When Entering the page.
+    window.addEventListener('load', function () {
+        alert('Hello visitor, the page is now loaded. Have fun!');
+    });
+
+    // Different syntax, same result. The function being called
+    // is here in its own function onLoad(). It can then
+    // be called more often. Usually, this does not happen.
+    // You will mostly see the notation above.
+    // ------------
+    // window.addEventListener(‘load’, onLoad)
+    // function onLoad () {
+    // alert(‘Hello visitor, the page is now loaded, have fun!’);
+    // }
+
+    // 2. When leaving the page.
+    window.addEventListener('beforeunload', function (event) {
+        // Cancel the event, so a popup is shown
+        // Most of the times, we CAN NOT set a message ourselves.
+        event.preventDefault();
+        // Chrome requires returnValue to be set
+        event.returnValue = '';
+    });
+</script>
+</body>
+</html>

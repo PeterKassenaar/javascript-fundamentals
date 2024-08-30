@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript document methods</title>
+    <script>
+        // Note - the usage of event listeners inside eventlisteners.
+        window.addEventListener('load', function () {
+            document.getElementById('btnShowName')
+                .addEventListener('click', function () {
+                    const name = document.getElementById('txtName').value;
+                    const message = 'Welcome ' + name;
+                    alert(message);
+                });
+        });
+    </script>
+</head>
+
+<body>
+<h2>Show name in an alert()</h2>
+<input type="text" id="txtName" placeholder="Please type your name"/>
+<button id="btnShowName">Show Name</button>
+
+</body>
+</html>

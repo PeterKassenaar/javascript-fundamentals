@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Workshop #3</title>
+</head>
+<body>
+<h1>A simple JavaScript Calculator</h1>
+<p>using <code>parseInt()</code> and/or <code>parseFloat()</code></p>
+<div id="divResult"></div>
+
+
+<script>
+    // Read two numbers, convert them with parseInt() and parseFloat()
+    const num1 = prompt('What is the first number?', 'number 1');
+    const num2 = prompt('What is the second number?', 'number 2');
+    // const total = num1 + num2; // <== This will fail!
+
+    const total = parseInt(num1) + parseInt(num2); // <== This is correct. Converting strings to integers using parseInt()
+    // const total = +num1 + +num2; // <== Modern syntax, using the plus sign instead of parseInt(). Older browsers will not understand this.
+
+    const text = num1 + ' plus ' + num2 + ' = ' + total;
+
+    // Write total value to document. We could have also used console.log()
+    document.getElementById('divResult').innerHTML = text;
+
+    // Q: What will happen if you enter strings instead of numbers? Explain this!
+</script>
+
+</body>
+</html>

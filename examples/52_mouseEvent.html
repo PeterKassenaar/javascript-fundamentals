@@ -5,10 +5,10 @@
     <title>JavaScript mouse event</title>
     <script>
         // example: catching mouse clicks and mouse moves.
-        window.onload=function(){
+        window.addEventListener('load', function(){
             document.addEventListener('click', handleClick);
             document.addEventListener('mousemove', handleMove);
-        };
+        });
 
         // Event handlers
         function handleClick(evt){

@@ -47,9 +47,18 @@
 
     // 4. Function to create a new array where every item is multiplied by 10
     function multiplyByTen(myArray) {
+        // Option 1, using an array.map() function here.
+        // The .map() function ALWAYS returns a new array. The original array is unaltered.
         return myArray.map(function(num) {
             return num * 10;
         });
+
+        // OR, Option 2, using a for-loop:
+        // let newArray = [] // 1. Creating a new array ourselves, to hold the multiplied numbers.
+        // for (let i = 0; i < myArray.length; i++){
+        //     newArray.push(myArray[i] * 10) // 2. Push this result to the new array
+        // }
+        // return newArray; // 3. Return the new array.
     }
 
     //******************

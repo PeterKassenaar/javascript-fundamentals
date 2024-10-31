@@ -24,7 +24,9 @@
         let input;
         while (true) {
             input = prompt("Enter a number (type 'end' to stop):");
-            if (input.toLowerCase() === 'end') break;
+            if (input.toLowerCase() === 'end') {
+                break;
+            }
             let number = parseFloat(input);
             // check if actually a number is entered.
             if (!isNaN(number)) {
